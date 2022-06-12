@@ -1,13 +1,15 @@
-fx_version 'adamant'
-
+fx_version 'cerulean'
 game 'gta5'
+description 'Speed radars that will automatically detect and fine drivers.'
+author 'Abel Gaming'
+version '1.0'
 
 client_scripts {
-    'client.lua',
     'config.lua',
+    'client.lua'
 }
 
 server_scripts {
-    'server.lua',
     'config.lua',
+    'server.lua'
 }
