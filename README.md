@@ -1,5 +1,5 @@
 # Fork Updates
-• Auto Fine (like police job)<br>
+• Auto Fine (like police job - billing menu)<br>
 • Configurable zones in the config.lua file (can set locations and what the speed should be in that zone)<br>
 • Discord Webhook<br>
 • Camera blips<br>
