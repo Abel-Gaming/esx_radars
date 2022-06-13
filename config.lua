@@ -7,7 +7,7 @@ Config.EnableBlips = true
 
 -- Log
 Config.EnableDiscordLog = true
-Config.DiscordWebHook = 'https://discord.com/api/webhooks/985742711451705364/lBQZdBlQurdQFaYDMy1y3O3aBpi2xn5wTUK9oaOeLcZUakJ4W4Z1q9R1DA0TKVqJHzJC'
+Config.DiscordWebHook = ''
 
 -- Fines
 Config.Fine 	= 300 -- 10mph over (default: $300)
