@@ -38,7 +38,7 @@ Citizen.CreateThread(function()
         for k,v in pairs(Config.radarZones) do
             local player = GetPlayerPed(-1)
             local coords = GetEntityCoords(player, true)
-            if Vdist2(Config.radarZones[k].position.x, Config.radarZones[k].position.y, Config.radarZones[k].position.z, coords["x"], coords["y"], coords["z"]) < 20 then
+            if Vdist2(Config.radarZones[k].position.x, Config.radarZones[k].position.y, Config.radarZones[k].position.z, coords["x"], coords["y"], coords["z"]) < 35 then
                 if PlayerData.job ~= nil and not (PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance') then
                     checkSpeed(Config.radarZones[k].SpeedLimit)
                 end
@@ -64,7 +64,8 @@ function checkSpeed(SpeedLimit)
 
         if truespeed >= SpeedLimit + 10 and truespeed <= SpeedLimit + 19 then
 	        fineamount = Config.Fine
-	        finelevel = '10mph Over Limit'
+	        finelevel = '10 MPH over speed limit'
+            TriggerServerEvent('esx_radars:DiscordWebhook', finelevel)
             if Config.AutoPay then
                 TriggerServerEvent('esx_radars:FineDriver', fineamount)
             else
@@ -74,7 +75,8 @@ function checkSpeed(SpeedLimit)
 	
         if truespeed >= SpeedLimit + 20 and truespeed <= SpeedLimit + 29 then
 	        fineamount = Config.Fine2
-	        finelevel = '20mph Over Limit'
+	        finelevel = '20 MPH over speed limit'
+            TriggerServerEvent('esx_radars:DiscordWebhook', finelevel)
             if Config.AutoPay then
                 TriggerServerEvent('esx_radars:FineDriver', fineamount)
             else
@@ -84,7 +86,8 @@ function checkSpeed(SpeedLimit)
 	
         if truespeed >= SpeedLimit + 30 and truespeed <= SpeedLimit + 39 then
 	        fineamount = Config.Fine3
-	        finelevel = '30mph Over Limit'
+	        finelevel = '30 MPH over speed limit'
+            TriggerServerEvent('esx_radars:DiscordWebhook', finelevel)
             if Config.AutoPay then
                 TriggerServerEvent('esx_radars:FineDriver', fineamount)
             else
@@ -94,7 +97,19 @@ function checkSpeed(SpeedLimit)
 	
         if truespeed >= SpeedLimit + 40 and truespeed <= SpeedLimit + 50 then
 	        fineamount = Config.Fine4
-	        finelevel = '40mph Over Limit'
+	        finelevel = '40 MPH over speed limit'
+            TriggerServerEvent('esx_radars:DiscordWebhook', finelevel)
+            if Config.AutoPay then
+                TriggerServerEvent('esx_radars:FineDriver', fineamount)
+            else
+                TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(PlayerPedId()), '', 'Speeding Ticket', fineamount)
+            end
+	    end
+
+        if truespeed >= SpeedLimit + 51 then
+	        fineamount = Config.Fine5
+	        finelevel = '51 MPH + over speed limit'
+            TriggerServerEvent('esx_radars:DiscordWebhook', finelevel)
             if Config.AutoPay then
                 TriggerServerEvent('esx_radars:FineDriver', fineamount)
             else
